@@ -1,10 +1,6 @@
-FROM docker:19.03.5 as resource
+FROM vydev/awscli:latest as resource
 RUN apk add --update --no-cache \
-    py-pip \
-    zip \
-    jq
-RUN pip install \
-    awscli
+    docker-cli
 
 FROM resource
 ENTRYPOINT [ "aws" ]
